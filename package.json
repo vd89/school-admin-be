@@ -9,8 +9,8 @@
  "private": true,
  "type": "module",
  "engines": {
-  "node": "^16.17.0",
-  "npm": "^8.15.0",
+  "node": "^19.3.0",
+  "npm": "^9.2.0",
   "yarn": "^1.22.19"
  },
  "dependencies": {
@@ -33,11 +33,10 @@
   "dotenv": "^16.0.2",
   "eslint": ">=5.16.0",
   "eslint-config-google": "^0.14.0",
-  "nodemon": "^2.0.20",
   "prettier": "^2.7.1"
  },
  "scripts": {
-  "dev": "nodemon",
+  "dev": "cross-env DEBUG=app:* node --watch index.js",
   "start": "NODE_ENV=production DEBUG=app:* node .",
   "remove": "rm -rf dist node_modules",
   "db:init": "docker compose -f int-setup/docker-compose.yaml up -d"

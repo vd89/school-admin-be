@@ -6,6 +6,7 @@ export const testAuth = async (req, res, next) => {
   try {
     const testData = {
       testDetails: 'The test is working fine ',
+      newData: 'this is the new data for check',
     };
     return res.ok({ message: 'SUCCESS', data: testData });
   } catch (e) {
