@@ -17,8 +17,8 @@ export const sessionConfig = {
 };
 
 export const sessionClear = (req, res, next) => {
-  if (req.cookies['back-end-temp'] && !req.session.user) {
-    res.clearCookie('back-end-temp');
+  if (req.cookies['school-admin-be'] && !req.session.user) {
+    res.clearCookie('school-admin-be');
   }
   next();
 };
@@ -28,9 +28,9 @@ export const sessionCheck = (req, res, next) => {
 
   const check =
    !_.isEmpty(cookies) &&
-   cookies.back-end-temp &&
-   _.isString(cookies.back-end-temp) &&
-   cookies.back-end-temp.includes(session.id) &&
+   cookies.school-admin-be &&
+   _.isString(cookies.school-admin-be) &&
+   cookies.school-admin-be.includes(session.id) &&
    session.user;
   if (check) {
     next();

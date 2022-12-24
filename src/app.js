@@ -55,7 +55,7 @@ app.use(i18n.init);
 app.use(cookieParser());
 app.use(
     session({
-      name: 'back-end-temp',
+      name: 'school-admin-be',
       key: sessionConfig.key,
       secret: sessionConfig.secret,
       resave: sessionConfig.resave,

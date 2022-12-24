@@ -35,7 +35,7 @@ export const headerFunction = (req, res, next) => {
         'x-client-id',
         'x-client-secret',
         'x-client-device',
-        'x-back-end-template-token',
+        'x-school-admin-be-token',
       ].join(', '),
   );
   if (req.method === 'OPTIONS') {
