@@ -77,6 +77,10 @@ app.use(extendedRequestMiddleware);
 
 app.all('*', headerFunction);
 
+/* Importing the Model
+ */
+import './models/index.js';
+
 app.get('/', testAuth);
 app.get('/ping', pingRes);
 app.use('/api', apiRoutes);
