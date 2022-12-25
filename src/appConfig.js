@@ -8,6 +8,8 @@ export default {
   availableLocals: config.get('AVAILABLE_LOCALS') || process.env.AVAILABLE_LOCALS || '',
   defaultLanguage: config.get('DEFAULT_LANGUAGE') || process.env.DEFAULT_LANGUAGE || '',
   projectRoot: path.join(__dirname, '.'),
+  algorithm: 'aes-256-cbc',
+  encryptionKey: config.get('ENCRYPTION_KEY') || process.env.ENCRYPTION_KEY || '',
   sessionSecret: config.get('SESSION_SECRET') || process.env.SESSION_SECRET || '',
   jwtSecret: config.get('JWT_SECRET') || process.env.JWT_SECRET || '',
   whiteList: config.get('CORS_WHITELIST') || process.env.CORS_WHITELIST || [],

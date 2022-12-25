@@ -37,7 +37,7 @@ const corsOptionsDelegate = function(req, callback) {
       credentials: true,
       optionsSuccessStatus: 200,
       methods: ['OPTIONS', 'HEAD', 'GET', 'POST', 'PUT', 'DELETE'],
-      allowedHeaders: ['X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+      allowedHeaders: ['X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'x-school-admin-be-token'],
     };
   } else {
     corsOptions = {

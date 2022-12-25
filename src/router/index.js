@@ -28,7 +28,7 @@ apiRoutes.use('/v1/student', studentRoute);
 /*
  * All the Teacher routes for here
  */
-apiRoutes.use('/v1/student', teacherRoutes);
+apiRoutes.use('/v1/teacher', teacherRoutes);
 
 
 export default apiRoutes;

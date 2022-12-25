@@ -1,4 +1,6 @@
 import debug from 'debug';
+import { getUserData } from '../controllers/adminCtrls.js';
+import { tokenVerify } from '../helper/encryptionHelper.js';
 const appLog = debug('app:middleware -> ');
 
 export const notFound = (req, res, next) => {
@@ -32,9 +34,6 @@ export const headerFunction = (req, res, next) => {
         'Accept',
         'Authorization',
         'Accept-Language',
-        'x-client-id',
-        'x-client-secret',
-        'x-client-device',
         'x-school-admin-be-token',
       ].join(', '),
   );
@@ -54,3 +53,19 @@ export const unauthorizedErrors = (err, req, res, next) => {
   next();
 };
 
+export const auth = async (req, res, next) => {
+  const getToken = req.header('x-school-admin-be-token');
+  if (!getToken) {
+    return res.unauthorized(`Don't have the, authorization to access`);
+  }
+  // Verify the Token
+  try {
+    const deCoded = await tokenVerify(getToken);
+    const user = await getUserData(deCoded.user);
+    user.password = undefined;
+    req.user = user;
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
