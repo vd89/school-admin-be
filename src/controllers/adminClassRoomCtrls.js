@@ -2,7 +2,7 @@ import debug from 'debug';
 import { isValidObjectId } from 'mongoose';
 import ClassRoom from '../models/classroomModel.js';
 
-const logger = debug('app:adminClassRoomCtrls -> ');
+const logger = debug('app:adminClRCtrl -> ');
 
 export const createEditClassRoom = async (req, res, next) => {
   try {
@@ -18,7 +18,6 @@ export const createEditClassRoom = async (req, res, next) => {
       classSubject: subject,
     };
     isClassRoom = await ClassRoom.findOneAndUpdate({ classRoomName }, { $set: editData }, { new: true });
-
     return res.ok({ message: 'SUCCESS_UPDATED', data: isClassRoom });
   } catch (err) {
     logger(err.message);

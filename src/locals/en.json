@@ -21,5 +21,13 @@
 	"Please change and check to create ": "Please change and check to create ",
 	"SUCCESS_CREATED": "SUCCESS_CREATED",
 	"CLASS_ROOM_DELETED": "CLASS_ROOM_DELETED",
-	"ClassRoom already deleted": "ClassRoom already deleted"
+	"ClassRoom already deleted": "ClassRoom already deleted",
+	"SUCCESS_STUDENT_CREATED": "SUCCESS_STUDENT_CREATED",
+	"SUCCESS_STUDENT_UPDATED": "SUCCESS_STUDENT_UPDATED",
+	"Student already deleted": "Student already deleted",
+	"SUCCESS_TEACHER_CREATED": "SUCCESS_TEACHER_CREATED",
+	"SUCCESS_TEACHER_UPDATED": "SUCCESS_TEACHER_UPDATED",
+	"Teacher Id is wrong": "Teacher Id is wrong",
+	"Teacher already deleted": "Teacher already deleted",
+	"TEACHER_DELETED": "TEACHER_DELETED"
 }

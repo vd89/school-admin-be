@@ -3,12 +3,11 @@ import Student from './modelsControllers/studentCtrl.js';
 
 
 const _schema = new Schema({
-  studentName: { type: String },
-  studentUserName: { type: String },
-  studentEmail: { type: String },
-  studentPassword: { type: String },
-  studentAge: { type: Number },
-  studentClass: [{ type: Schema.ObjectId, ref: 'Classroom' }],
+  sName: { type: String },
+  sUserName: { type: String },
+  sEmail: { type: String, unique: true },
+  sPassword: { type: String },
+  sClass: [{ type: Schema.ObjectId, ref: 'Classroom' }],
 }, {
   timestamps: true,
 });

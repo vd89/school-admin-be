@@ -8,4 +8,7 @@ export default class Teacher {
       },
     };
   }
+  static async createTeacher(options={}) {
+    return await this.create(options);
+  }
 }
