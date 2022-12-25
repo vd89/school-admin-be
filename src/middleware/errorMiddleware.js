@@ -53,7 +53,7 @@ export const unauthorizedErrors = (err, req, res, next) => {
   next();
 };
 
-export const auth = async (req, res, next) => {
+export const adminAuth = async (req, res, next) => {
   const getToken = req.header('x-school-admin-be-token');
   if (!getToken) {
     return res.unauthorized(`Don't have the, authorization to access`);
@@ -69,3 +69,4 @@ export const auth = async (req, res, next) => {
     next(err);
   }
 };
+

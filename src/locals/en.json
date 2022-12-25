@@ -15,5 +15,11 @@
 	"REMOVE_POST": "Removed Post",
 	"Please go for Login": "Please go for Login",
 	"LOGGED_IN_SUCCESS": "LOGGED_IN_SUCCESS",
-	"UNAUTHORIZED": "UNAUTHORIZED"
+	"UNAUTHORIZED": "UNAUTHORIZED",
+	"Success": "Success",
+	"SUCCESS_UPDATED": "SUCCESS_UPDATED",
+	"Please change and check to create ": "Please change and check to create ",
+	"SUCCESS_CREATED": "SUCCESS_CREATED",
+	"CLASS_ROOM_DELETED": "CLASS_ROOM_DELETED",
+	"ClassRoom already deleted": "ClassRoom already deleted"
 }

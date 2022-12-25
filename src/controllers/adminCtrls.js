@@ -52,7 +52,6 @@ export const loginAdmin = async (req, res, next) => {
   }
 };
 
-
 export const adminSignOut = async (req, res, next) => {
   try {
     req.session.destroy();

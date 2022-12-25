@@ -8,4 +8,13 @@ export default class ClassRoom {
       },
     };
   }
+
+  static async createClassRoom(options={}) {
+    const { classRoomName, studentCount, subject } = options;
+    return await this.create({
+      classRoomName,
+      numberOfStudent: studentCount,
+      classSubject: subject,
+    });
+  }
 }
