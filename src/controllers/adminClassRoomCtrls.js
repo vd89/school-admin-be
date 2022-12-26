@@ -42,3 +42,27 @@ export const deleteClassRoom = async (req, res, next) => {
     next(err);
   }
 };
+
+
+export const getAllClassRooms = async (req, res, next) => {
+  const { page = 1, limit = 10 } = req.query;
+  try {
+    const allClassrooms = await ClassRoom.find()
+        .sort({ createdAt: -1 })
+        .limit(limit * 1)
+        .skip((page - 1) * limit)
+        .exec();
+    const count = await ClassRoom.countDocuments();
+    return res.ok({
+      message: 'ALL_CLASS_ROOMS',
+      data: {
+        allClassrooms,
+        totalPages: Math.ceil(count / limit),
+        currentPage: page,
+      },
+    });
+  } catch (err) {
+    logger(err.message);
+    next(err);
+  }
+};

@@ -45,3 +45,27 @@ export const deleteStudent = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getAllStudents = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 10 } = req.query;
+    const allStudents = await Student.find()
+        .sort({ createdAt: -1 })
+        .select({ sName: 1, sUserName: 1, sEmail: 1 })
+        .limit(limit * 1)
+        .skip((page - 1) * limit)
+        .exec();
+    const count = await Student.countDocuments();
+    return res.ok({
+      message: 'SUCCESS_ALL_STUDENTS',
+      data: {
+        allStudents,
+        totalPages: Math.ceil(count / limit),
+        currentPage: page,
+      },
+    });
+  } catch (err) {
+    logger(err.message);
+    next(err);
+  }
+};

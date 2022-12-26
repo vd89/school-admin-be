@@ -45,3 +45,27 @@ export const deleteTeacher = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getAllTeachers = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 10 } = req.query;
+    const allTeachers = await Teacher.find()
+        .sort({ createdAt: -1 })
+        .select({ tName: 1, tUserName: 1, tEmail: 1 })
+        .limit(limit * 1)
+        .skip((page - 1) * limit)
+        .exec();
+    const count = await Teacher.countDocuments();
+    return res.ok({
+      message: 'SUCCESS_ALL_TEACHERS',
+      data: {
+        allStudents: allTeachers,
+        totalPages: Math.ceil(count / limit),
+        currentPage: page,
+      },
+    });
+  } catch (err) {
+    logger(err.message);
+    next(err);
+  }
+};
